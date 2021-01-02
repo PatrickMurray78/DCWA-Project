@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            th {
+                font-weight: lighter;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Cities</h1>
+        <br>
+        <table style="width:80%" border="2px black solid" id="cityTable">
+            <tr>
+                <th style="font-weight: bold;">City Code</th>
+                <th style="font-weight: bold;">Country Code</th>
+                <th style="font-weight: bold;">City Name</th>
+                <th style="font-weight: bold;">Population</th>
+                <th style="font-weight: bold;">By the Sea</th>
+                <th style="font-weight: bold;">Area</th>
+            </tr>
+            <!-- If there are stored cities, print out the details for each one -->
+            <% if (cityData.length > 0) { %>
+                <% for(let i = 0; i < cityData.length; i++) { %>
+                    <tr>
+                        <th><%= cityData[i].cty_code %></th>
+                        <th><%= cityData[i].co_code %></th>
+                        <th><%= cityData[i].cty_name %></th>
+                        <th><%= cityData[i].population %></th>
+                        <th><%= cityData[i].isCoastal %></th>
+                        <th><%= cityData[i].areaKM %></th>
+                        <th><a href="/allDetails/<%= cityData[i].cty_code %>">All Details</a></th>
+                    </tr>
+                <% } %>
+            <% } %>
+        </table>
+        <a href="./overview.html">Home</a>
+    </body>
+    <script>
+    </script>
+</html>

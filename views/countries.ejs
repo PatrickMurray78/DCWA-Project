@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            th {
+                font-weight: lighter;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Countries</h1>
+        <button id="myButton">Add Country</button>
+        <br><br>
+        <table style="width:80%" border="2px black solid" id="countryTable">
+            <tr>
+                <th style="font-weight: bold;">Country Code</th>
+                <th style="font-weight: bold;">Country Name</th>
+                <th style="font-weight: bold;">Country Details</th>
+                <th style="font-weight: bold;">Action</th>
+                <th></th>
+            </tr>
+            <!-- If there are stored countries, print out the details for each one -->
+            <% if (data.length > 0) { %>
+                <% for(let i = 0; i < data.length; i++) { %>
+                    <tr>
+                        <th><%= data[i].co_code %></th>
+                        <th><%= data[i].co_name %></th>
+                        <th><%= data[i].co_details %></th>
+                        <th><a href="/edit/<%= data[i].co_code %>">Update</a></th>
+                        <th><a href="/delete/<%= data[i].co_code %>">Delete</a></th>
+                    </tr>
+                <% } %>
+            <% } %>
+        </table>
+        <a href="./overview.html">Home</a>
+    </body>
+    <script>
+        // If the "Add Country" button is clicked, change url to /addCountry
+        document.getElementById("myButton").onclick = function () {
+            location.href = "/addCountry";
+        }
+    </script>
+</html>

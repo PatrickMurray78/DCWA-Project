@@ -1,0 +1,28 @@
+<html>
+    <body>
+
+        <h1>Edit Country</h1>
+
+        <!-- Prints any errors after form has been submitted -->
+        <% if (errors != undefined) { %>
+            <ul>
+                <% errors.forEach((error) => { %>
+                    <li><%= error.msg %></li>
+                <% }) %>
+            </ul>
+        <% } %>
+
+        <!-- This form displays the details of the country that the user can edit -->
+        <form action="/edit" method="POST">
+            <label>Country Code</label>
+            <input type="text" name="code" value="<%= code %>" readonly><br>
+            <label>Country Name</label>
+            <input type="text" name="name" value="<%= name %>"><br>
+            <label>Country Details</label>
+            <textarea name="details" rows="4" cols="40"><%= details %></textarea>
+            <input type="submit" value="Update">
+        </form> 
+    </body>
+    <script>
+    </script>
+</html>

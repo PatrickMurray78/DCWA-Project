@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            th {
+                font-weight: lighter;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Heads Of State</h1>
+        <button id="myButton">Add Head Of State</button>
+        <br><br>
+        <table style="width:40%" border="2px black solid" id="countryTable">
+            <tr>
+                <th style="font-weight: bold;">Country Code</th>
+                <th style="font-weight: bold;">Head of State</th>
+            </tr>
+            <!-- If there are stored heads of state, print out the details for each one -->
+            <% if (data.length > 0) { %>
+                <% for(let i = 0; i < data.length; i++) { %>
+                    <tr>
+                        <th><%= data[i]._id %></th>
+                        <th><%= data[i].headOfState %></th>
+                    </tr>
+                <% } %>
+            <% } %>
+        </table>
+        <br>
+        <a href="./overview.html">Home</a>
+    </body>
+    <script>
+        // If the "Add Head of State" button is clicked, change url to /addHeadOfState
+        document.getElementById("myButton").onclick = function () {
+            location.href = "/addHeadOfState";
+        }
+    </script>
+</html>
